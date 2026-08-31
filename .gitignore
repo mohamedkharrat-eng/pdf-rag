@@ -1,5 +1,5 @@
 .env
-data/
+data.txt/
 pdf\2eme/
 __pycache__/
 venv/
