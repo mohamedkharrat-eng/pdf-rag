@@ -34,8 +34,8 @@ def retrieve(question, embed_model, index, chunks, k=TOP_K):
     return [chunks[i] for i in indices[0]]
 
 def build_prompt(question, retrieved_chunks):
-    context = "\n\n".join(f"[{c['source']}, page {c['page']}]\n{c['text']}" for c in retrieved_chunks)
-    return f"""Answer in detail using ONLY the context below. If not in context, say you don't know.
+    context = "\n\n".join(f"[{c['source']}]\n{c['text']}" for c in retrieved_chunks)
+    return f"""Answer using ONLY the context below. If not in context, say you don't know.
 
 Context:
 {context}

@@ -1,0 +1,51 @@
+Mohamed Kharrat - Profile and Projects
+
+## About
+Mohamed Kharrat is a first-year Génie Informatique (Computer Engineering) student at ENSI Manouba, Tunisia. Born 11/11/2004, Bac 2023. He completed prépa (preparatory classes) at IPEIS Sfax in Physique-Technique from 2023 to 2025. He lives in Sfax, Tunisia, and resides at Foyer Ibn Zohr in the Technopole, Manouba during the school year. His long-term goal is to master AI/ML and specialize in the field. He is a member of the ECPC competitive programming club.
+
+Contact: mohamed.kharrat@ensi-uma.tn
+LinkedIn: linkedin.com/in/mohamed-kharrat1
+GitHub: github.com/mohamedkharrat-eng
+Hugging Face: shankos
+Phone: +216 96 522 860
+
+## Technical Skills
+Languages: C, C++, Python, Java, HTML/CSS/JS, PHP, React.js
+Tools and libraries: Git/GitHub, Pandas, NumPy, Scikit-learn, Matplotlib, PyTorch
+Development environment: VS Code with GitHub Copilot (via Student Pack), explored Gemini CLI
+Hardware: Intel Core i7 13th gen, 16 GB RAM, 512 GB storage, RTX 4060, Windows
+
+## Project 1: Chest X-Ray Pneumonia Detector
+Built and deployed a Chest X-Ray Pneumonia Detector on Hugging Face Spaces. Uses ResNet50 with Transfer Learning and a Gradio interface. Achieved 86.7% accuracy. During development, Mohamed resolved challenges including class imbalance, overfitting, and fine-tuning instability.
+
+## Project 2: Shoplifting Detection System
+A shoplifting detection system currently in progress. Uses YOLOv8 for object detection combined with ByteTrack for object tracking, aimed at identifying suspicious behavior in retail video footage.
+
+## Project 3: Agency Management Web App
+Built during a web development internship at We Are Digital Tech Services in Tunis. A Laravel 11 + MySQL digital marketing agency management application. Covers client, service, publication, employee, and task modules. Features dual-authentication with separate admin and employee guards, a FullCalendar scheduler, and Chart.js statistics dashboards. Integrates RapidAPI for Instagram/Facebook data scraping. Repository hosted under wearetechdigitalservices-sketch on GitHub. Technical challenges solved included migration ordering conflicts and guard middleware conflicts. Applied Laravel concepts: MVC, Blade templating, Eloquent CRUD, Migrations, Middleware, session-based authentication, file upload handling, and custom guards.
+
+## Project 4: Anber Patisserie E-commerce Site
+A Laravel e-commerce website built for a family patisserie (pastry) business. Includes a home page, an admin panel, and product CRUD functionality with photo upload support. Shopping cart implemented via sessions, with email notifications sent through Gmail SMTP. Deployed on Railway. Technical challenges solved included InnoDB tablespace corruption and view file mix-ups.
+
+## Project 5: PDF RAG Chatbot
+A Retrieval-Augmented Generation (RAG) system built to chat with personal course PDFs and documents. Uses sentence-transformers for embeddings, FAISS for vector search, and Groq's API for answer generation, with a Streamlit chat interface deployed publicly.
+
+## Coursework (S2, Génie Informatique)
+Subjects covered: microprocessors, formal languages and automata theory, operating systems, digital transmission, numerical methods, graph algorithms, object-oriented programming, image processing.
+
+Digital transmission topics: DSP, line codes (NRZ/RZ/Manchester), M-ASK/PSK/QAM modulations, Nyquist criteria, matched filters, raised cosine filtering, eye diagrams, constellation diagrams, Gray coding, intersymbol interference (ISI).
+
+Numerical methods topics: fixed-point iteration, convergence proofs, Jacobi/Gauss-Seidel/SOR methods, LU/Cholesky factorization, matrix conditioning, Gauss-Jordan elimination.
+
+Formal language theory: Chomsky hierarchy, deterministic and non-deterministic finite automata (AFD/AFN), pushdown automata, Turing machines, pumping lemmas, regular and context-free grammars.
+
+Operating systems: Unix commands, grep/regex, Makefiles, inode arithmetic, process management.
+
+Image processing: histograms, Fourier spectra, Chan-Vese segmentation, spatial filters.
+
+Object-oriented programming in C++ and Java: inheritance, polymorphism, virtual functions, abstract classes.
+
+Other topics: x86 assembly (EMU8086, addressing modes, registers), PL/SQL (cursors, triggers, exceptions, index-by tables), Linux system administration (Ubuntu VM, sudoers, GNOME terminal, TTY, dpkg).
+
+## Interests
+Sports and hobbies: chess, swimming, football, volleyball. Deep love for mathematics and AI. Enjoys Marvel content, especially Moon Knight. Favorite films include Shutter Island, The Hurt Locker, Interstellar, Arrival, Fight Club, Joker, The Shawshank Redemption, The Lord of the Rings, and Inception. Particularly enjoys films starring Jake Gyllenhaal and Leonardo DiCaprio. TV shows watched include Rick and Morty, Game of Thrones, The Walking Dead, and Breaking Bad.

@@ -2,28 +2,25 @@ import os
 import pickle
 import numpy as np
 import faiss
-from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
 
-DATA_DIR = "data"
-CHUNK_SIZE = 500
+DATA_DIR = "."  # current folder, since data.txt is right there
+CHUNK_SIZE = 800
 CHUNK_OVERLAP = 100
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 INDEX_PATH = "vector_store.faiss"
+CHUNKS_PATH = "chunks.pkl"
 
 
-def load_pdfs(data_dir):
-    """Read every PDF and return one entry per page: {text, source, page}."""
+def load_txt_files(data_dir):
     documents = []
     for filename in os.listdir(data_dir):
-        if not filename.lower().endswith(".pdf"):
-            continue
-        path = os.path.join(data_dir, filename)
-        reader = PdfReader(path)
-        for page_num, page in enumerate(reader.pages):
-            text = page.extract_text() or ""
+        if filename.lower().endswith(".txt"):
+            path = os.path.join(data_dir, filename)
+            with open(path, "r", encoding="utf-8") as f:
+                text = f.read()
             if text.strip():
-                documents.append({"text": text, "source": filename, "page": page_num + 1})
+                documents.append({"text": text, "source": filename})
     return documents
 
 
@@ -51,26 +48,25 @@ def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
 
 
 def main():
-    print("Loading PDFs...")
-    documents = load_pdfs(DATA_DIR)
-    print(f"Loaded {len(documents)} pages from {DATA_DIR}/")
+    print("Loading text files...")
+    documents = load_txt_files(DATA_DIR)
+    print(f"Loaded {len(documents)} text files")
 
     all_chunks = []
     for doc in documents:
         for chunk in chunk_text(doc["text"]):
-            all_chunks.append({"text": chunk, "source": doc["source"], "page": doc["page"]})
+            all_chunks.append({"text": chunk, "source": doc["source"]})
 
     print(f"Created {len(all_chunks)} chunks total.")
 
-    with open("chunks.pkl", "wb") as f:
+    with open(CHUNKS_PATH, "wb") as f:
         pickle.dump(all_chunks, f)
     print("Saved chunks.pkl")
 
-    # --- NEW: embedding step ---
-    print("\nLoading embedding model (downloads once, ~80MB)...")
+    print("Loading embedding model...")
     model = SentenceTransformer(EMBEDDING_MODEL)
 
-    print("Embedding all chunks (this is the slow part, be patient)...")
+    print("Embedding chunks...")
     texts = [c["text"] for c in all_chunks]
     embeddings = model.encode(texts, show_progress_bar=True, convert_to_numpy=True)
 
@@ -80,7 +76,7 @@ def main():
     index.add(embeddings.astype(np.float32))
 
     faiss.write_index(index, INDEX_PATH)
-    print(f"Saved {INDEX_PATH} — {index.ntotal} vectors of dimension {dimension}")
+    print(f"Saved {INDEX_PATH} — {index.ntotal} vectors")
 
 
 if __name__ == "__main__":
